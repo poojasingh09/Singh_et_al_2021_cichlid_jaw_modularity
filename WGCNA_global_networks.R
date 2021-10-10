@@ -1,6 +1,9 @@
 ## WGCNA code used for global coexpression network analysis used in Singh et al 2021
 ## https://bmcecolevol.biomedcentral.com/articles/10.1186/s12862-021-01787-9
 ## pooja.singh09@gmail.com
+## please read this before you attempt wgcna: https://horvath.genetics.ucla.edu/html/CoexpressionNetwork/Rpackages/WGCNA/faq.html
+## input file is a data matrix of normalised gene expression from DEseq2. You can also normalise your data in other ways.
+## input file has rows as genes and columns as samples
 
 #load libraries
 
@@ -52,7 +55,7 @@ dev.off()
 
 # pick soft threshold with biweight
 
-sft1 = pickSoftThreshold(datExpr0, powerVector = powers, verbose = 5, corFnc = "bicor")
+sft1 = pickSoftThreshold(datExpr0, powerVector = powers, verbose = 5, corFnc = "bicor") ## make sure you use bicor!! it is more robust to outliers
 
 #plot soft threshhold and mean connectivity as a function of soft threshold 
 
